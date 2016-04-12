@@ -7,13 +7,13 @@ import android.graphics.Typeface;
  */
 public class BSDFont {
 
-    protected Typeface normalFont, boldFont, italicFont, italicBoldFont;
+    protected Typeface normalFont = Typeface.DEFAULT, boldFont, italicFont, italicBoldFont;
 
     private static BSDFont instance;
 
     protected static BSDFont getInstance(){
         if(instance==null){
-            //mando errore
+            throw new RuntimeException("Nessuna instanza impostata!");
         }
         return instance;
     }
@@ -23,6 +23,16 @@ public class BSDFont {
         this.boldFont = builder.boldFont;
         this.italicFont = builder.boldFont;
         this.italicBoldFont = builder.italicBoldFont;
+
+        if(this.boldFont == null){
+            this.boldFont = this.normalFont;
+        }
+        if(this.italicFont == null){
+            this.italicFont = this.normalFont;
+        }
+        if(this.italicBoldFont == null){
+            this.italicBoldFont = this.normalFont;
+        }
     }
 
     public static void init(BSDFontBuilder builder){
