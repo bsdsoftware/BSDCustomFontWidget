@@ -63,10 +63,10 @@ public class SpinnerCF extends Spinner {
             if (attrs != null) {
                 TypedArray a = getContext().obtainStyledAttributes(attrs, R.styleable.SpinnerCF);
                 if (a.hasValue(R.styleable.SpinnerCF_spinner_item_resource)) {
-                    itemLayout = a.getInt(R.styleable.SpinnerCF_spinner_item_resource, itemLayout);
+                    itemLayout = a.getResourceId(R.styleable.SpinnerCF_spinner_item_resource, itemLayout);
                 }
                 if (a.hasValue(R.styleable.SpinnerCF_spinner_dropdown_item_resource)) {
-                    itemLayout = a.getInt(R.styleable.SpinnerCF_spinner_dropdown_item_resource, dropdownLayout);
+                    itemLayout = a.getResourceId(R.styleable.SpinnerCF_spinner_dropdown_item_resource, dropdownLayout);
                 }
                 a.recycle();
             }
