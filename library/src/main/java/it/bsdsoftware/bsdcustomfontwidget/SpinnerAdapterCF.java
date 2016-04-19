@@ -38,7 +38,7 @@ public class SpinnerAdapterCF extends ArrayAdapter<SpinnerItem> {
         SpinnerItem item = getItem(position);
         textView.setText(item.getLabel());
 
-        return textView;
+        return row;
     }
 
     @Override
