@@ -66,7 +66,7 @@ public class SpinnerCF extends Spinner {
                     itemLayout = a.getResourceId(R.styleable.SpinnerCF_spinner_item_resource, itemLayout);
                 }
                 if (a.hasValue(R.styleable.SpinnerCF_spinner_dropdown_item_resource)) {
-                    itemLayout = a.getResourceId(R.styleable.SpinnerCF_spinner_dropdown_item_resource, dropdownLayout);
+                    dropdownLayout = a.getResourceId(R.styleable.SpinnerCF_spinner_dropdown_item_resource, dropdownLayout);
                 }
                 a.recycle();
             }
