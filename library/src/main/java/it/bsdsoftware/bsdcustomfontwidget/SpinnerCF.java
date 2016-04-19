@@ -78,11 +78,13 @@ public class SpinnerCF extends Spinner {
                 activity = (Activity) ctw.getBaseContext();
             }
             adapterCF = new SpinnerAdapterCF(activity, itemLayout, dropdownLayout);
+            this.setAdapter(adapterCF);
         }
     }
 
     public void setItems(List<SpinnerItem> items){
-        adapterCF.addAll(items);
+        if(adapterCF!=null){
+            adapterCF.addAll(items);
+        }
     }
-
 }
