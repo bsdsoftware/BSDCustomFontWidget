@@ -6,5 +6,6 @@ package it.bsdsoftware.bsdcustomfontwidget;
 public enum CustomFontStyle {
     NORMAL,
     ITALIC,
-    BOLD
+    BOLD,
+    ITALIC_BOLD
 }

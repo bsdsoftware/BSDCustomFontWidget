@@ -49,17 +49,7 @@ public class CustomFontActivity extends AppCompatActivity {
     }
 
     private void checkStyle(Typeface typeface, View view){
-        Typeface newTypeface = BSDFont.getInstance().normalFont;
-        if(typeface!=null) {
-            if (typeface.isBold() && typeface.isItalic()) {
-                newTypeface = BSDFont.getInstance().italicBoldFont;
-            } else if (typeface.isBold()) {
-                newTypeface = BSDFont.getInstance().boldFont;
-            } else if (typeface.isItalic()) {
-                newTypeface = BSDFont.getInstance().italicFont;
-            }
-        }
-
+        Typeface newTypeface = BSDFont.getInstance().getTypeface(typeface);
         if(view instanceof EditText){
             ((EditText)view).setTypeface(newTypeface);
         }else if(view instanceof Button){

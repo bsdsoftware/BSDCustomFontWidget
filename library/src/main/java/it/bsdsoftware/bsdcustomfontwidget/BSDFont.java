@@ -11,7 +11,7 @@ public class BSDFont {
 
     private static BSDFont instance;
 
-    protected static BSDFont getInstance(){
+    public static BSDFont getInstance(){
         if(instance==null){
             throw new RuntimeException("Nessuna instanza impostata!");
         }
@@ -47,6 +47,9 @@ public class BSDFont {
             case ITALIC:
                 fontInterface.setFont(italicFont);
                 break;
+            case ITALIC_BOLD:
+                fontInterface.setFont(italicBoldFont);
+                break;
             case NORMAL:
             default:
                 fontInterface.setFont(normalFont);
@@ -62,8 +65,24 @@ public class BSDFont {
                 return CustomFontStyle.BOLD;
             case 2:
                 return CustomFontStyle.ITALIC;
+            case 3:
+                return CustomFontStyle.ITALIC_BOLD;
             default:
                 return CustomFontStyle.NORMAL;
         }
+    }
+
+    protected Typeface getTypeface(Typeface typeface){
+        Typeface newTypeface = BSDFont.getInstance().normalFont;
+        if(typeface!=null) {
+            if (typeface.isBold() && typeface.isItalic()) {
+                newTypeface = BSDFont.getInstance().italicBoldFont;
+            } else if (typeface.isBold()) {
+                newTypeface = BSDFont.getInstance().boldFont;
+            } else if (typeface.isItalic()) {
+                newTypeface = BSDFont.getInstance().italicFont;
+            }
+        }
+        return newTypeface;
     }
 }

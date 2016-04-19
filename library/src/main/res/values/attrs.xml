@@ -5,6 +5,7 @@
             <enum name="normal" value="0" />
             <enum name="bold" value="1" />
             <enum name="italic" value="2" />
+            <enum name="italic_bold" value="3" />
         </attr>
     </declare-styleable>
     <declare-styleable name="EditTextCF">
@@ -12,6 +13,7 @@
             <enum name="normal" value="0" />
             <enum name="bold" value="1" />
             <enum name="italic" value="2" />
+            <enum name="italic_bold" value="3" />
         </attr>
     </declare-styleable>
     <declare-styleable name="ButtonCF">
@@ -19,6 +21,11 @@
             <enum name="normal" value="0" />
             <enum name="bold" value="1" />
             <enum name="italic" value="2" />
+            <enum name="italic_bold" value="3" />
         </attr>
+    </declare-styleable>
+    <declare-styleable name="SpinnerCF">
+        <attr name="spinner_item_resource" format="reference" />
+        <attr name="spinner_dropdown_item_resource" format="reference" />
     </declare-styleable>
 </resources>
