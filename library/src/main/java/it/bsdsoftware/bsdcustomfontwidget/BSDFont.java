@@ -13,13 +13,13 @@ public class BSDFont {
 
     public static BSDFont getInstance(){
         if(instance==null){
-            throw new RuntimeException("Nessuna instanza impostata!");
+            throw new RuntimeException("BSD Font non inizializzata! Assicurati di chiamare il metodo 'init' all'avvio dell'applicazione");
         }
         return instance;
     }
 
     protected BSDFont(BSDFontBuilder builder){
-        this.normalFont = builder.normalFont;
+        this.normalFont = builder.normalFont != null ? builder.normalFont : Typeface.DEFAULT;
         this.boldFont = builder.boldFont;
         this.italicFont = builder.boldFont;
         this.italicBoldFont = builder.italicBoldFont;
@@ -82,6 +82,9 @@ public class BSDFont {
             } else if (typeface.isItalic()) {
                 newTypeface = BSDFont.getInstance().italicFont;
             }
+        }
+        if(newTypeface == null){
+            newTypeface = BSDFont.getInstance().normalFont;
         }
         return newTypeface;
     }

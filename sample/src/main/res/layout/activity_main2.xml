@@ -14,18 +14,21 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="Hello World! (normal)" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:textStyle="bold"
-        android:text="Hello World!" />
-
+        android:text="Hello World! (bold)" />
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Button sample text"
+        android:text="Button sample text (bold)"
         android:textStyle="bold" />
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textStyle="italic"
-        android:hint="placeholder Text"/>
+        android:hint="placeholder Text (italic)"/>
 </LinearLayout>
