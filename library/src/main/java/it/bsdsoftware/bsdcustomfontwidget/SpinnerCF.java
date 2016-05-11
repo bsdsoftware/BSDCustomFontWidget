@@ -83,7 +83,14 @@ public class SpinnerCF extends Spinner {
     }
 
     public void setItems(List<SpinnerItem> items){
+        setItems(items, false);
+    }
+
+    public void setItems(List<SpinnerItem> items, boolean clear){
         if(adapterCF!=null){
+            if(clear){
+                adapterCF.clear();
+            }
             adapterCF.addAll(items);
         }
     }
