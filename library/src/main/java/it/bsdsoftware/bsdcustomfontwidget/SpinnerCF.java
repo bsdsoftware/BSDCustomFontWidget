@@ -94,4 +94,23 @@ public class SpinnerCF extends Spinner {
             adapterCF.addAll(items);
         }
     }
+
+    public String getSelectedValue(){
+        SpinnerItem item = (SpinnerItem)getSelectedItem();
+        if(item!=null){
+            return  item.getValue();
+        }
+        return  "";
+    }
+
+    public void setSelectedItem(String value){
+        for(int i = 0; i < adapterCF.getItems().size();i++){
+            SpinnerItem item = adapterCF.getItem(i);
+            if(item.getValue().equals(value)){
+                setSelection(i);
+                return;
+            }
+        }
+        setSelection(-1);
+    }
 }

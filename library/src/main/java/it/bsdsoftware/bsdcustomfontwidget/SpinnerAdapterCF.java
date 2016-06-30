@@ -10,6 +10,10 @@ import android.widget.ArrayAdapter;
 import android.widget.CheckedTextView;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+
 /**
  * Created by Simone on 19/04/16.
  */
@@ -17,12 +21,14 @@ public class SpinnerAdapterCF extends ArrayAdapter<SpinnerItem> {
 
     private int itemResource, dropdownResource;
     private Activity context;
+    private List<SpinnerItem> items;
 
     public SpinnerAdapterCF(Activity context, int itemResource, int dropdownResource) {
         super(context, itemResource);
         this.context = context;
         this.itemResource = itemResource;
         this.dropdownResource = dropdownResource;
+        this.items = new ArrayList<>();
         setDropDownViewResource(dropdownResource);
     }
 
@@ -52,5 +58,30 @@ public class SpinnerAdapterCF extends ArrayAdapter<SpinnerItem> {
         SpinnerItem item = getItem(position);
         checkedTextView.setText(item.getLabel());
         return row;
+    }
+
+    @Override
+    public void addAll(Collection<? extends SpinnerItem> collection) {
+        super.addAll(collection);
+        items.clear();
+        for (SpinnerItem item : collection) {
+            items.add(item);
+        }
+    }
+
+    @Override
+    public void add(SpinnerItem object) {
+        super.add(object);
+        items.add(object);
+    }
+
+    @Override
+    public void clear() {
+        super.clear();
+        items.clear();
+    }
+
+    public List<SpinnerItem> getItems() {
+        return items;
     }
 }
